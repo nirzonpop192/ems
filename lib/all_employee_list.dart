@@ -1,11 +1,10 @@
+import 'package:ag_trunnel/employee_lists.dart';
 import 'package:built_value/built_value.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_time_patterns.dart';
 import 'package:intl/intl.dart';
-import 'package:savarna/data/employee_lists.dart';
-import 'package:savarna/page/settings_page.dart';
-import '../widget/code_snippets.dart';
+
 
 class AllEmployeePage extends StatefulWidget {
   const AllEmployeePage({Key? key}) : super(key: key);
@@ -40,15 +39,12 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
             AsyncSnapshot<QuerySnapshot> snapshot,
           ) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return spinningLoadWheel(
-                Theme.of(context).colorScheme.primary,
-                MediaQuery.of(context).size.height * 0.2,
-              );
+              return Text("Loading....");
             }
             if (snapshot.hasError || !snapshot.hasData) {
               debugPrint(snapshot.error.toString());
               ScaffoldMessenger.of(context)
-                  .showSnackBar(errorSnackBar("En uventet feil har oppstått."));
+                  .showSnackBar(SnackBar(content: Text("En uventet feil har oppstått.")));
               return Container();
             }
             final QuerySnapshot<Map<String, dynamic>> data =

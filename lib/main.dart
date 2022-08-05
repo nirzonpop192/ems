@@ -1,11 +1,18 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+import 'all_employee_list.dart';
+
 
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: FirebaseOptions(
+    apiKey: "AIzaSyAN4nT5PKw9v2-P0UW7j18uLfJeEslET5", // Your apiKey
+    appId: "1:109875349033:android:fd54c67659652a30d4fe38", // Your appId
+    messagingSenderId: "109875349033", // Your messagingSenderId
+    projectId: "emsproject-e6c4e", // Your projectId
+  ),);
   runApp(const MyApp());
 }
 
@@ -29,7 +36,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      //home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const AllEmployeePage(),
     );
   }
 }
