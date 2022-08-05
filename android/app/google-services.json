@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "109875349033",
+    "project_id": "emsproject-e6c4e",
+    "storage_bucket": "emsproject-e6c4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109875349033:android:fd54c67659652a30d4fe38",
+        "android_client_info": {
+          "package_name": "com.example.ag_trunnel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "109875349033-gadkae3sug67kt7ma42u25uh6pjpoue3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAN4nT5PKw9v2-P0UW7j18uLfJeEslET5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "109875349033-gadkae3sug67kt7ma42u25uh6pjpoue3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
