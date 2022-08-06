@@ -459,13 +459,13 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
                             fontFamily: "Caveat",
                             fontWeight: FontWeight.w700,),),
                       onPressed: cancel),
-            /*TextButton(child: const Text("Submit",
+            TextButton(child: const Text("Edit",
             style: TextStyle(
                           fontSize: 16.0,
                           color: Colors.deepPurple,
                           fontFamily: "Caveat",
-                          fontWeight: FontWeight.w700,),), 
-                    onPressed: submit),*/
+                          fontWeight: FontWeight.w700,),),
+                    onPressed:()=>{} ),
           ],
          ),
         
