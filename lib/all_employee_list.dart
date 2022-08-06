@@ -272,7 +272,7 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
                           fontFamily: "Caveat",
                           fontWeight: FontWeight.w700,)),
                     Container(width:20),
-                    Text(name,
+                    Text(name??"",
                     style: const TextStyle(
                                    fontSize: 16.0,
                                     color: Colors.blue,
@@ -296,7 +296,7 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
                     child:SizedBox(
                       width: 190,
                       child:
-                    Text(address,
+                    Text(address??"",
                          style: const TextStyle(
                                  fontSize: 16.0,
                                  color: Colors.blue,
@@ -319,7 +319,7 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
                     Text(
                       DateFormat.yMMMMd(Intl.defaultLocale)
                           .format(startDate)
-                          .toString(),
+                          .toString()??"",
                           style: const TextStyle(
                                         fontSize: 16.0,
                                     color: Colors.blue,
@@ -340,7 +340,7 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
                           fontWeight: FontWeight.w700,)),
                     
                     Container(width:20),
-                    Text(yrke,
+                    Text(yrke??"",
                         style: const TextStyle(
                                       fontSize: 16.0,
                                     color: Colors.blue,
@@ -359,7 +359,7 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
                           fontFamily: "Caveat",
                           fontWeight: FontWeight.w700,)),
                     Container(width:20),
-                    Text(nr.toString(),
+                    Text(nr.toString()??"",
                     style: const TextStyle(
                                     fontSize: 16.0,
                                     color: Colors.blue,
@@ -379,7 +379,7 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
                           fontWeight: FontWeight.w700,),
                    ),
                     Container(width:20),
-                    Text(kolonne1,
+                    Text(kolonne1??"",
                     style: const TextStyle(
                                     fontSize: 16.0,
                                     color: Colors.blue,
@@ -398,7 +398,7 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
                           fontFamily: "Caveat",
                           fontWeight: FontWeight.w700,)),
                     Container(width:20),     
-                    Text(licence,
+                    Text(licence??"",
                     style: const TextStyle(
                                     fontSize: 16.0,
                                     color: Colors.blue,
@@ -418,7 +418,7 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
                           fontFamily: "Caveat",
                           fontWeight: FontWeight.w700,)),
                     Container(width:20),      
-                    Text(language,
+                    Text(language??"",
                     style: const TextStyle(
                                     fontSize: 16.0,
                                     color: Colors.blue,
@@ -437,7 +437,7 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
                           fontFamily: "Caveat",
                           fontWeight: FontWeight.w700,)),
                     Container(width:20),
-                    Text(groupId.toString(),
+                    Text(groupId.toString()??"",
                     style: const TextStyle(
                                     fontSize: 16.0,
                                     color: Colors.blue,
@@ -453,6 +453,13 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
           
           actions: [
             TextButton(child: const Text("Cancel",
+               style: TextStyle(
+                            fontSize: 16.0,
+                            color: Colors.red,
+                            fontFamily: "Caveat",
+                            fontWeight: FontWeight.w700,),),
+                      onPressed: cancel),
+            TextButton(child: const Text("Edit",
                style: TextStyle(
                             fontSize: 16.0,
                             color: Colors.red,
