@@ -1,3 +1,4 @@
+import 'package:ag_trunnel/alert.dart';
 import 'package:ag_trunnel/employee_lists.dart';
 import 'package:built_value/built_value.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -162,6 +163,11 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
                                                 employee.kolonne1,
                                                 employee.licence,
                                                 employee.language,
+                                                employee.number,
+                                                employee.role,
+                                                employee.speciality,
+                                                employee.hasTrackLicense,
+                                                employee.hasMechanicSkills
 
                                           );
                                       if (employee.groupId == 22120835) {
@@ -191,7 +197,8 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
                                           onPrimary: Colors.deepPurple,
                                           side: const BorderSide(color: Colors.deepPurple, width: 2),
                                         ),
-                                      onPressed: (){
+                                      onPressed: ()
+                                      {
                                          openDialog(
                                                 employee.fullName,
                                                 employee.address,
@@ -201,6 +208,12 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
                                                 employee.kolonne1,
                                                 employee.licence,
                                                 employee.language,
+                                               employee.number,
+                                               employee.role,
+                                               employee.speciality,
+                                               employee.hasTrackLicense,
+                                               employee.hasMechanicSkills
+
 
                                           );
                                       if (employee.groupId == 22120835) {
@@ -241,7 +254,87 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
     );
   }
 
-  Future<String?> openDialog(name, address, startDate, yrke,nr, kolonne1, licence, language) => showDialog<String>(
+  showAlertDialog(BuildContext context, String name, String address) {
+    // Create button
+    Widget okButton = FlatButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+
+    // Create AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Simple Alert"),
+      content:  SizedBox(
+        height: 350,
+        width: 300,
+        child:Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+
+                  const Text("Name:",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.deepPurple,
+                        fontFamily: "Caveat",
+                        fontWeight: FontWeight.w700,)),
+                  Container(width:20),
+                  Text(name.toString(),
+                    style: const TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.blue,
+                      fontFamily: "Caveat",
+                      fontWeight: FontWeight.w500,
+                    ),),
+                ]),
+            const SizedBox(height: 10.0),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  const Text("Address:",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.deepPurple,
+                        fontFamily: "Caveat",
+                        fontWeight: FontWeight.w700,)),
+                  Container(width:20),
+                  FittedBox(
+                    fit: BoxFit.fill,
+                    child:SizedBox(
+                      width: 190,
+                      child:
+                      Text(address.toString(),
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.blue,
+                          fontFamily: "Caveat",
+                          fontWeight: FontWeight.w500,),),
+                    ),
+                  ),
+                ]),
+            const SizedBox(height: 10.0),
+          ],
+        ),
+      ),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  Future<String?> openDialog(name, address, startDate, yrke,nr, kolonne1, licence, language, number, role, speciality, hasTrackLicense, hasMechanicalSkills) => showDialog<String>(
         context: context,
         builder: (context) => AlertDialog(
           contentPadding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
@@ -465,7 +558,9 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
                             color: Colors.red,
                             fontFamily: "Caveat",
                             fontWeight: FontWeight.w700,),),
-                      onPressed: cancel),
+                      onPressed: () {
+                        showAlertDialog(context, name, address,);
+                      }),
             /*TextButton(child: const Text("Submit",
             style: TextStyle(
                           fontSize: 16.0,

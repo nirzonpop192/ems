@@ -6,6 +6,12 @@ class AgEmployeesInProject {
   final String firstName;
   final String lastName;
   final String address;
+
+  final int? number;
+  final String? role;
+  final String? speciality;
+  final bool? hasTrackLicense;
+  final bool? hasMechanicSkills;
   
 
   final String? yrke;
@@ -27,6 +33,12 @@ class AgEmployeesInProject {
     required this.lastName,
     required this.address,
 
+    required this.number,
+    required this.role,
+    required this.speciality,
+    required this.hasMechanicSkills,
+    required this.hasTrackLicense,
+
     required this.yrke,
     required this.nr,
     required this.kolonne1,
@@ -47,6 +59,11 @@ class AgEmployeesInProject {
       firstName: fbData['firstName'],
       lastName: fbData['surName'],
       address: fbData['address'],
+      number: fbData['agNumber'],
+      role: fbData['agRole'],
+      speciality: fbData['agSpeciality'],
+      hasMechanicSkills: fbData['hasMechanicSkills'],
+      hasTrackLicense: fbData['hasTrackLicense'],
       yrke: fbData['yrke'],
       nr: fbData['nr'],
       kolonne1: fbData['kolonne1'],
@@ -67,7 +84,7 @@ class AgEmployeesInProject {
 
   @override
   String toString() {
-    return "AgEmployeesInProject {\n"        
+    return "AgEmployeesInProject {\n"
         "  id: $id\n"
         "  fullName: $fullName\n"
         "  firstName: $firstName\n"
